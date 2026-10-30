@@ -4,6 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>돌파 매매 시뮬레이터</title>
+<meta name="description" content="종목과 시기를 가린 일봉 차트에서 피벗 돌파 매수·손절·청산을 연습하는 웹 게임. 국장·미장 과거 데이터 백테스트 통계 기반의 교육용 연습 도구입니다(투자 권유 아님).">
+<meta property="og:title" content="돌파 매매 시뮬레이터"><meta property="og:description" content="종목·시기를 가린 차트로 돌파 매매 감각을 훈련하는 웹 게임. 교육용이며 투자 권유가 아닙니다.">
 <style>
 :root{color-scheme:dark;--bg:#0f1318;--card:#181e26;--line:#2a323d;--tx:#e8edf3;--sub:#8f9bab;--acc:#4da3ff;--good:#3ecf8e;--bad:#ff6b6b;--warn:#f5b84a}
 @media (prefers-color-scheme:light){:root:not([data-theme=dark]){--bg:#f2f4f7;--card:#fff;--line:#d9dee5;--tx:#16202b;--sub:#5d6978;--acc:#1b6fd1;--good:#12915b;--bad:#d03b3b;--warn:#b57a0a;color-scheme:light}}
@@ -118,6 +120,12 @@ details.more>summary{cursor:pointer;color:var(--acc);margin-top:10px;font-size:1
       "거래 비용"을 켜면 수수료·세금·슬리피지를 뺀 수익률로 성공 여부와 점수를 계산합니다.<br>
       <span class="warn">주의</span> 현재 상장 종목만 쓰므로 상장폐지 종목이 빠져 성공률이 실제보다 높게 나옵니다(생존 편향). 수수료·세금·슬리피지는 "거래 비용"을 켠 경우에만 반영됩니다.<br>
       국장은 빨강=상승/파랑=하락, 미장은 초록=상승/빨강=하락. 하단 얇은 선은 같은 시기의 지수입니다.
+    </div>
+    <div class="card sub" style="line-height:1.6">
+      <b style="color:var(--tx)">이용 안내</b><br>
+      투자 권유가 아닌 <b>교육용 연습 도구</b>입니다. 가상 매매이며 과거 데이터 기반 결과는 미래 수익을 보장하지 않습니다. 실제 투자 판단과 그에 따른 책임은 본인에게 있습니다.<br>
+      개인을 구분하지 않는 방문 통계(GoatCounter, 쿠키 없음)만 수집합니다. 풀이 기록은 이 브라우저에만 저장되고 서버로 보내지 않습니다.<br>
+      <a href="../" style="color:var(--acc)">다른 도구·게임</a> · <a href="https://readtest.tistory.com/" style="color:var(--acc)">블로그: 읽고 검증하는 노트</a>
     </div>
   </div>
 
@@ -625,5 +633,6 @@ $('#tutNext').onclick=()=>tutI>=TUT.length-1?closeTut():showTut(tutI+1);$('#tutS
 if(!store.get('bo_tut',0))showTut(0);
 window.addEventListener('resize',()=>{if(!$('#game').classList.contains('hide')&&cur&&!locked){if(mode==1){draw($('#c1'),cur,PRE,300);drawIdx($('#i1'),cur,PRE)}else if(mode==5)draw($('#c1'),cur,PRE,300,{hidePv:true,mark:P5&&P5.mark});else drawTrade(PRE+(mode==3&&T&&T.bought?T.k:0))}});
 </script>
+<script data-goatcounter="https://readntest.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
